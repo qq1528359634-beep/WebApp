@@ -6,9 +6,10 @@ using WebApp.Models.Repositories;
 namespace WebApp.Controllers
 {
     public class ShirtsController : Controller
-    {   //通过构造函数注入IWebApiExecuter接口的实例，
+    { 
         //使得ShirtsController能够使用webApiExecuter来调用Web API获取数据。
         private readonly IWebApiExecuter webApiExecuter;
+
        
         public ShirtsController(IWebApiExecuter webApiExecuter)
         {
@@ -18,11 +19,17 @@ namespace WebApp.Controllers
         //获取Tshirt类型的列表数据，并将其传递给视图进行显示。
         public async Task<IActionResult> Index()
         {
-            return  View(await webApiExecuter.InvokeGet<List<Shirt>>("shirts"));
+            var shirts = await webApiExecuter.InvokeGet<List<Shirt>>("shirts");
+            return View(shirts);
+
         }
-      /*  public IActionResult Index()
+        public IActionResult CreateShirt()
         {
-            return View(ShirtsRepository.GetShirts());
-        }*/
+            return View();
+
+        }
+
+
+
     }
 }

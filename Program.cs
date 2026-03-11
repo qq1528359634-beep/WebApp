@@ -5,9 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //配置客户端，命名为ShirtApi，设置根地址和默认请求头
-builder.Services.AddHttpClient("ShirtsAPi",client =>
+builder.Services.AddHttpClient("ShirtsApi",client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7025/api");
+    client.BaseAddress = new Uri("https://localhost:7025/api/");
     client.DefaultRequestHeaders.Add("Accept","Appliaction/Json");
 });
 

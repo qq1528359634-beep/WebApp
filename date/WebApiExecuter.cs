@@ -1,6 +1,8 @@
-﻿namespace WebApp.date
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace WebApp.date
 {
-    public class WebApiExecuter:IWebApiExecuter
+    public class WebApiExecuter: IWebApiExecuter
     {
        public const string ApiName= "ShirtsApi";
         private readonly IHttpClientFactory httpClientFactory;
@@ -14,11 +16,12 @@
             var httpClient=this.httpClientFactory.CreateClient(ApiName);
             return await httpClient.GetFromJsonAsync<T>(relativeUrl);
 
-        }  
+        }
+       
 
     }
 }
 //获取已经注册的HTTP客户端实例，apiName是注册时指定的名称
-//GetFromJsonAsync发送GET请求到指定的相对URL，并将响应内容反序列化为类型T的对象。
+//GetFromJsonAsync发送GET请求到指定的相对URL，并将响应内容反序列化为类型T的对   象。
 //GetFromJsonAsync<T>方法会将HTTP响应内容反序列化为指定类型的对象
-//如果响应内容无法被正确反序列化，或者HTTP请求失败，则会返回null。
+//如果响应内容无法被正确反序列化，或者HTTP请求失败，则会返回n ll。

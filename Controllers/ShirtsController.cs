@@ -6,11 +6,11 @@ using WebApp.Models.Repositories;
 namespace WebApp.Controllers
 {
     public class ShirtsController : Controller
-    { 
+    {
         //使得ShirtsController能够使用webApiExecuter来调用Web API获取数据。
         private readonly IWebApiExecuter webApiExecuter;
 
-       
+
         public ShirtsController(IWebApiExecuter webApiExecuter)
         {
             this.webApiExecuter = webApiExecuter;
@@ -28,8 +28,12 @@ namespace WebApp.Controllers
             return View();
 
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateShirt(Shirt shirt)
+        {
 
+            return View(shirt);
 
-
+        }
     }
 }

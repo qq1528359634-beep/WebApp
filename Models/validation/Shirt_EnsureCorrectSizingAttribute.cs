@@ -5,7 +5,8 @@ namespace WebApp.Models.validation
     public class Shirt_EnsureCorrectSizingAttribute : ValidationAttribute
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
-        {
+        {  
+      
             //我们用他来修饰shirt的一个对象属性，所以我们确定他是一个shirt对象
             var shirt = validationContext.ObjectInstance as Shirt;
             if (shirt != null&&!string.IsNullOrEmpty(shirt.Gender))
